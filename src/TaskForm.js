@@ -1,9 +1,14 @@
 import { useState } from "react";
 
-export default function TaskForm(){
+export default function TaskForm({onAdding}){
     const [taskName, setTaskName] = useState('');
+    function handleSubmit(ev){
+        ev.preventDefault();
+        onAdding(taskName);
+        setTaskName('');
+    }
     return (
-        <form>
+        <form onSubmit={ev => handleSubmit(ev)}>
             <button>+</button>
             <input type="text" 
             onChange={ev => setTaskName(ev.target.value)}

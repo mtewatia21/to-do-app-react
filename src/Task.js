@@ -1,7 +1,11 @@
-export default function Task(){
+import Checkbox from "./Checkbox";
+
+export default function Task({name, done}){
     return (
-        <div>
-           test: task1 
+        <div className="task">
+            {/* <input type="checkbox"/> */}
+            <Checkbox defaultState={done} />
+           {name}
         </div>
     );
 }
