@@ -25,11 +25,19 @@ function App() {
     });
   }
 
+  function updateTask(taskIdx, done2){
+    setTasks(prev => {
+      const task2 = [...prev];
+      task2[taskIdx].done = done2;
+      return task2;
+    });
+  }
+
   return (
     <main>
       <TaskForm onAdding = {addTask} />
-      {tasks.map(task => (
-        <Task {...task}/>
+      {tasks.map((task, idx) => (
+        <Task {...task} onToggle={done => updateTask(idx, done)} />
       ))}
     </main>
   );
