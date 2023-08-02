@@ -42,6 +42,7 @@ div.task{
     margin-top: 5px;
     display: flex;
     transition: opacity .3s linear;
+    align-items: center;
 }
 
 div.task svg{
@@ -57,6 +58,14 @@ div.task.done{
 div.task span{
     position: relative;
 }
+div.task-name{
+    flex-grow: 1;
+}
+
+div.checkbox{
+    display: flex;
+    align-items: center;
+}
 
 div.task span::before{
     content: '';
@@ -69,6 +78,21 @@ div.task span::before{
     transition: width .3s linear;
 }
 
+button.delete-task{
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+button.delete-task svg{
+    fill: #aaa;
+}
+
 div.task.done span::before{
     width: 100%;
+}
+
+h1, h2{
+    text-align: center;
 }
