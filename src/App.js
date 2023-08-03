@@ -45,6 +45,14 @@ function App() {
     return 'Keep at it!'
   }
 
+  function renameTask(index, newName){
+    setTasks(prev => {
+      const newTasks = [...prev];
+      newTasks[index].name = newName;
+      return newTasks;
+    })
+  }
+
   function deleteTask(taskIndex){
     setTasks(prev => {
       return prev.filter((taskObject, index) => index !== taskIndex)
@@ -56,7 +64,8 @@ function App() {
       <h2>{getMessage()}</h2>
       <TaskForm onAdding = {addTask} />
       {tasks.map((task, idx) => (
-        <Task {...task} 
+        <Task {...task}
+        onRename={newName => renameTask(idx, newName)} 
         onDelete={() => deleteTask(idx)}
         onToggle={done => updateTask(idx, done)} />
       ))}

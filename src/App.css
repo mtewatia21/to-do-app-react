@@ -58,7 +58,7 @@ div.task.done{
 div.task span{
     position: relative;
 }
-div.task-name{
+div.task-name, div.task form{
     flex-grow: 1;
 }
 
@@ -95,4 +95,10 @@ div.task.done span::before{
 
 h1, h2{
     text-align: center;
+}
+
+div.task input{
+    border: 2px solid #555;
+    border-radius: 5px;
+    padding: 2px 4px;
 }
